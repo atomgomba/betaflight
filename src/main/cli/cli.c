@@ -3092,8 +3092,9 @@ static void cliVtxInfo(const char *cmdName, char *cmdline)
 #endif // USE_VTX_TABLE
 
 #ifdef USE_TUNING_SLIDERS
-static void cliTuningSliders(char *cmdline)
+static void cliTuningSliders(const char *cmdName, char *cmdline)
 {
+    UNUSED(cmdName);
     UNUSED(cmdline);
 
     applyTuningSliders(currentPidProfile);

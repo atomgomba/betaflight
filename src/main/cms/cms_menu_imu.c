@@ -244,8 +244,10 @@ static uint8_t cmsx_slider_dterm_filter_multiplier;
 static uint8_t cmsx_slider_gyro_filter;
 static uint8_t cmsx_slider_gyro_filter_multiplier;
 
-static const void *cmsx_slidersOnEnter(void)
+static const void *cmsx_slidersOnEnter(displayPort_t *pDisp)
 {
+    UNUSED(pDisp);
+
     const pidProfile_t *pidProfile = pidProfiles(pidProfileIndex);
 
     cmsx_slider_pids_mode = pidProfile->slider_pids_mode;
@@ -265,8 +267,9 @@ static const void *cmsx_slidersOnEnter(void)
     return 0;
 }
 
-static const void *cmsx_slidersOnExit(const OSD_Entry *self)
+static const void *cmsx_slidersOnExit(displayPort_t *pDisp, const OSD_Entry *self)
 {
+    UNUSED(pDisp);
     UNUSED(self);
 
     pidProfile_t *pidProfile = currentPidProfile;
